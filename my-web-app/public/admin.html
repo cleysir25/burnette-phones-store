@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Burnette Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/admin.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Admin Panel</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="updates.html">Updates</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Post a New Product</h2>
+            <form id="productForm">
+                <label for="productName">Product Name:</label>
+                <input type="text" id="productName" required>
+
+                <label for="productDescription">Description:</label>
+                <textarea id="productDescription" required></textarea>
+
+                <label for="productImage">Upload Image:</label>
+                <input type="file" id="productImage" accept="image/*">
+
+                <label for="productVideo">Upload Video:</label>
+                <input type="file" id="productVideo" accept="video/*">
+
+                <button type="submit">Post Product</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Post an Update</h2>
+            <form id="updateForm">
+                <label for="updateTitle">Update Title:</label>
+                <input type="text" id="updateTitle" required>
+
+                <label for="updateContent">Content:</label>
+                <textarea id="updateContent" required></textarea>
+
+                <label for="updateImage">Upload Image:</label>
+                <input type="file" id="updateImage" accept="image/*">
+
+                <label for="updateVideo">Upload Video:</label>
+                <input type="file" id="updateVideo" accept="video/*">
+
+                <button type="submit">Post Update</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Burnette Store. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

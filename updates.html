@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Updates</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Updates</h1>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="products.html">PRODUCTS</a></li>
+                <li class="logo"><a href="index.html">burnett store</a></li>
+                <li><a href="updates.html">UPDATES</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn" id="dropdownToggle">MENU &#9660;</a>
+                    <ul class="dropdown-content" id="dropdownContent">
+                        <li><a href="request.html">Request Product</a></li>
+                        <!-- add more options if needed -->
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section id="updates-list">
+        <h2>Latest Updates</h2>
+        <div id="updates-container">
+            <!-- Updates will be injected here -->
+        </div>
+        <section id="comments-section">
+            <h2>Comments</h2>
+            <div id="comments-container"></div>
+            <form id="comment-form">
+                <input type="text" id="commenter-name" placeholder="Your name" required>
+                <textarea id="comment-text" placeholder="Your comment" required></textarea>
+                <button type="submit">Post Comment</button>
+            </form>
+        </section>
+    </section>
+    <script src="js/updates.js"></script>
+    <script>
+        const dropdownToggle = document.getElementById("dropdownToggle");
+        const dropdownContent = document.getElementById("dropdownContent");
+
+        dropdownToggle.addEventListener("click", function (e) {
+            // Prevent default behavior
+            e.preventDefault();
+            // Toggle display: if currently visible, hide it; otherwise show it.
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "block";
+            }
+        });
+
+        // Optionally, click on any dropdown link hides it.
+        const dropdownLinks = dropdownContent.querySelectorAll("a");
+        dropdownLinks.forEach(link => {
+            link.addEventListener("click", function () {
+                dropdownContent.style.display = "none";
+            });
+        });
+    </script>
+    <style>
+        /* Base nav styling for header */
+        #main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        #main-nav ul li {
+            position: relative;
+        }
+
+        #main-nav ul li a {
+            text-decoration: none;
+            display: block;
+            padding: 10px 15px;
+            color: #000;
+        }
+
+        /* Dropdown container */
+        .dropdown .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            min-width: 150px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+        }
+
+        /* Dropdown items styling */
+        .dropdown .dropdown-content li {
+            width: 100%;
+        }
+
+        .dropdown .dropdown-content li a {
+            padding: 10px 15px;
+            color: #000;
+            white-space: nowrap;
+        }
+
+        .dropdown .dropdown-content li a:hover {
+            background-color: #ddd;
+        }
+
+        /* Show dropdown on hover for desktop */
+        @media (min-width: 481px) {
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+        }
+
+        /* Mobile styling: use JavaScript toggle */
+        @media (max-width: 480px) {
+            #main-nav ul {
+                flex-direction: column;
+            }
+
+            #main-nav ul li {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</body>
+
+</html>

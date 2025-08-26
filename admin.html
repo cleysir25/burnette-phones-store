@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Admin Panel</h1>
+    </header>
+
+    <!-- Admin Navigation -->
+    <nav id="admin-nav">
+        <button onclick="showSection('manage')">Manage Posts</button>
+        <button onclick="showSection('comments')">View Comments</button>
+        <button onclick="showSection('requests')">Product Requests</button>
+        <button onclick="showSection('settings')">Settings</button>
+    </nav>
+
+    <!-- Login Section -->
+    <section id="login-section">
+        <h2>Admin Login</h2>
+        <form id="login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            <button type="submit">Login</button>
+        </form>
+        <div id="login-message"></div>
+    </section>
+
+    <!-- Admin Actions for Posting -->
+    <section id="admin-actions" style="display: none;">
+        <h2>Post New Product</h2>
+        <form id="product-form">
+            <label for="product-title">Title:</label>
+            <input type="text" id="product-title" required>
+            <label for="product-description">Description:</label>
+            <textarea id="product-description" required></textarea>
+            <label for="media-type">Media Type:</label>
+            <select id="media-type">
+                <option value="image">Image</option>
+                <option value="video">Video</option>
+            </select>
+            <label for="media-file">Select Media File:</label>
+            <input type="file" id="media-file" accept="image/*,video/*" required>
+            <button type="submit">Post Product</button>
+        </form>
+        <h2>Post New Update</h2>
+        <form id="update-form">
+            <label for="update-title">Title:</label>
+            <input type="text" id="update-title" required>
+            <label for="update-description">Description:</label>
+            <textarea id="update-description" required></textarea>
+            <label for="update-media-type">Media Type:</label>
+            <select id="update-media-type">
+                <option value="image">Image</option>
+                <option value="video">Video</option>
+            </select>
+            <label for="update-media-file">Select Media File:</label>
+            <input type="file" id="update-media-file" accept="image/*,video/*" required>
+            <button type="submit">Post Update</button>
+        </form>
+    </section>
+
+    <!-- Manage Posts Section -->
+    <section id="manage-content" style="display: none;">
+        <h2>Manage Content</h2>
+        <div id="manage-products">
+            <h3>Products</h3>
+            <ul id="products-list">
+                <!-- List of products will render here -->
+            </ul>
+        </div>
+        <div id="manage-updates">
+            <h3>Updates</h3>
+            <ul id="updates-list">
+                <!-- List of updates will render here -->
+            </ul>
+        </div>
+    </section>
+
+    <!-- Comments Management Section -->
+    <section id="comments-management" style="display: none;">
+        <h2>Comments for Post: <span id="comments-post-title"></span></h2>
+        <div id="comments-list">
+            <!-- Comments will be rendered here -->
+        </div>
+        <button onclick="closeComments()">Close Comments</button>
+    </section>
+
+    <!-- Settings Section -->
+    <section id="settings-section" style="display: none;">
+        <h2>Settings</h2>
+        <form id="settings-form">
+            <label for="new-admin-password">New Admin Password:</label>
+            <input type="password" id="new-admin-password" required>
+            <label for="theme-select">Web View Theme:</label>
+            <select id="theme-select">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+            <button type="submit">Save Settings</button>
+        </form>
+    </section>
+
+    <!-- Edit Post Section -->
+    <section id="edit-section" style="display: none;">
+        <h2>Edit Post</h2>
+        <form id="edit-form">
+            <input type="hidden" id="edit-id">
+            <label for="edit-title">Title:</label>
+            <input type="text" id="edit-title" required>
+            <label for="edit-description">Description:</label>
+            <textarea id="edit-description" required></textarea>
+            <label for="edit-media-type">Media Type:</label>
+            <select id="edit-media-type">
+                <option value="image">Image</option>
+                <option value="video">Video</option>
+            </select>
+            <label for="edit-media-file">Select Media File (optional):</label>
+            <input type="file" id="edit-media-file" accept="image/*,video/*">
+            <button type="submit">Save Changes</button>
+            <button type="button" id="cancel-edit">Cancel</button>
+        </form>
+    </section>
+
+    <!-- Product Requests Section -->
+    <section id="requests-section" style="display: none;">
+        <h2>Product Requests</h2>
+        <ul id="requests-list">
+            <!-- Product requests will be rendered here -->
+        </ul>
+    </section>
+
+    <script src="js/admin.js"></script>
+    <script>
+        // Function to render product requests in the admin panel
+        function renderRequests() {
+            const requestsList = document.getElementById("requests-list");
+            let requests = JSON.parse(localStorage.getItem("requests")) || [];
+            requestsList.innerHTML = "";
+            if (requests.length === 0) {
+                requestsList.innerHTML = "<li>No product requests.</li>";
+            } else {
+                requests.forEach(req => {
+                    const li = document.createElement("li");
+                    li.innerHTML = `<strong>Product:</strong> ${req.productTitle} - <strong>WhatsApp:</strong> ${req.whatsapp}`;
+                    requestsList.appendChild(li);
+                });
+            }
+        }
+
+        function hideAllSections() {
+            const sections = ['admin-actions', 'manage-content', 'comments-management', 'settings-section', 'edit-section', 'requests-section'];
+            sections.forEach(id => {
+                if (document.getElementById(id)) {
+                    document.getElementById(id).style.display = "none";
+                }
+            });
+        }
+
+        function showSection(section) {
+            hideAllSections();
+            if (section === 'manage') {
+                document.getElementById('admin-actions').style.display = "block";
+                document.getElementById('manage-content').style.display = "block";
+            } else if (section === 'comments') {
+                alert("Please use the 'View Comments' button on a post to see its comments.");
+                showSection('manage');
+            } else if (section === 'settings') {
+                document.getElementById('settings-section').style.display = "block";
+            } else if (section === 'requests') {
+                document.getElementById('requests-section').style.display = "block";
+                renderRequests();
+            }
+        }
+    </script>
+</body>
+
+</html>

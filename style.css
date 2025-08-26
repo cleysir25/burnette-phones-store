@@ -1,0 +1,392 @@
+body {
+    background-color: rgb(253, 252, 253);
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: rgb(36, 31, 33);
+    justify-content: center;
+    flex-direction: row-reverse;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-image: url("images/product1.jpg");
+    background-size: cover;
+    background-position: center;
+    color: rgb(245, 8, 245);
+    margin-top: 20px;
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    height: 300px;
+    border-radius: 8px;
+
+}
+
+header .logo a {
+    background-image: url("images/burnett_logo-removebg-preview.png");
+    background-position: center;
+    background-size: 190px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    position: relative;
+    width: 120px;
+    text-indent: -9999px;
+    height: 250px;
+    top: -60px;
+
+}
+
+header h1 {
+    margin-bottom: 0px;
+}
+
+header h1:hover {
+    color: rgb(15, 1, 8);
+}
+
+section {
+    background-color: rgb(247, 244, 245);
+    border-radius: 10px;
+    color: rgb(17, 13, 10);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+section img {
+    max-width: 250px;
+    height: auto;
+    padding: 15px;
+}
+
+.feature-box img {
+    border-radius: 50%;
+    width: 300px;
+}
+
+.feature-box {
+
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+figcaption {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.last-section {
+    background: rgb(245, 219, 241);
+    border-radius: 8px;
+    flex-direction: column;
+    padding: 20px;
+    display: list-item;
+}
+
+.last-section li {
+    display: list-item;
+    list-style: disc;
+    margin-left: 20px;
+}
+
+section.products-section li {
+
+    display: list-item;
+    list-style: disc;
+    flex-direction: column;
+    gap: 9px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+
+    position: relative;
+    display: inline-block;
+    margin-right: 10px 10px 0 0;
+}
+
+footer {
+    background: black;
+    font-size: small;
+    background-color: rgb(36, 31, 33);
+    border-radius: 20px;
+    color: white;
+    padding: 10px 20px;
+}
+
+footer :last-child {
+    margin-bottom: 0;
+    text-align: center;
+    align-items: center;
+}
+
+footer img {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    margin-left: -10px;
+    vertical-align: middle;
+}
+
+footer li {
+    display: list-item;
+}
+
+.social-media:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s;
+    cursor: pointer;
+
+
+}
+
+footer:hover {
+    color: rgb(236, 201, 220);
+}
+
+a {
+    text-decoration: none;
+    color: rgb(250, 42, 198);
+    margin-right: 0 20px 20px;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: rgb(7, 7, 7);
+    margin-right: 0 20px 20px
+}
+
+/* Admin Panel Styles */
+#login-form,
+#product-form,
+#update-form {
+    margin: 20px auto;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+#login-form input,
+#product-form input,
+#product-form textarea,
+#update-form input,
+#update-form textarea,
+#update-form select {
+    margin-bottom: 10px;
+    padding: 8px;
+}
+
+/* Admin Navigation */
+#admin-nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    background-color: #444;
+    padding: 10px;
+}
+
+#admin-nav button {
+    background-color: #666;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#admin-nav button:hover {
+    background-color: #888;
+}
+
+/* Products and Updates */
+.product-item,
+.update-item {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px;
+    margin: 10px;
+}
+
+/* Comments Section */
+#comments-section {
+    margin-top: 30px;
+}
+
+.comment {
+    border-bottom: 1px solid #eee;
+    padding: 5px 0;
+}
+
+/* Comments Section Styling */
+#comments-management {
+    background-color: #f3f3f3;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.comment-box {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment-box button {
+    background: #e74c3c;
+    border: none;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.comment-box button:hover {
+    background: #c0392b;
+}
+
+/* Web view themes */
+body.light {
+    background-color: #fff;
+    color: #000;
+}
+
+body.dark {
+    background-color: #222;
+    color: #eee;
+}
+
+/* Additional styling for forms in settings and edit sections */
+#settings-form,
+#edit-form {
+    max-width: 400px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#settings-form label,
+#edit-form label {
+    margin-top: 10px;
+}
+
+#settings-form input,
+#edit-form input,
+#settings-form select,
+#edit-form select,
+#settings-form textarea,
+#edit-form textarea {
+    padding: 8px;
+    margin-top: 5px;
+}
+
+/* Base nav styling */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    display: block;
+    padding: 10px 15px;
+    color: #000;
+}
+
+/* Dropdown container */
+.dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 150px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Dropdown items styling */
+.dropdown .dropdown-content li {
+    width: 100%;
+}
+
+.dropdown .dropdown-content li a {
+    padding: 10px 15px;
+    color: #000;
+}
+
+.dropdown .dropdown-content li a:hover {
+    background-color: #ddd;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Optional: style the drop button */
+.dropbtn {
+    cursor: pointer;
+}
+
+/* Adjust header nav to fill header and center items */
+header nav {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Ensure the nav menu fits nicely in the header */
+header nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Tablet devices */
+@media (max-width: 768px) {
+    header {
+        height: auto;
+        padding: 15px;
+    }
+
+    header nav ul {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+    header nav ul {
+        flex-direction: column;
+    }
+
+    header nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+}

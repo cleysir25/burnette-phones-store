@@ -1,0 +1,27 @@
+{
+  "name": "my-web-app",
+  "version": "1.0.0",
+  "description": "A web application with an admin panel for posting products and updates.",
+  "main": "public/index.html",
+  "scripts": {
+    "start": "live-server public",
+    "build": "echo 'Build process can be defined here'",
+    "test": "echo 'No tests defined'"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "multer": "^1.4.2",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  },
+  "keywords": [
+    "web",
+    "admin",
+    "products",
+    "updates"
+  ],
+  "author": "Your Name",
+  "license": "ISC"
+}
