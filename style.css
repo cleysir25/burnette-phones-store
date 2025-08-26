@@ -172,7 +172,7 @@ a {
 
 a:hover {
     text-decoration: underline;
-    color: rgb(228, 20, 134);
+    color: white;
     margin-right: 0 20px 20px
 }
 
@@ -321,7 +321,7 @@ nav ul li a {
     text-decoration: none;
     display: block;
     padding: 50px 25px;
-    color: #ebe6e9;
+    color: pink;
     font-weight: bold;
 }
 
@@ -397,3 +397,4 @@ header nav ul {
         text-align: center;
     }
 }
+
