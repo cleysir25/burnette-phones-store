@@ -43,7 +43,7 @@ header h1 {
 }
 
 header h1:hover {
-    color: rgb(15, 1, 8);
+    color: pink;
 }
 
 section {
@@ -389,4 +389,5 @@ header nav ul {
         width: 100%;
         text-align: center;
     }
+
 }
